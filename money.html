@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>đổi-tiền</title>
+</head>
+
+<body>
+<form method="get" action="money.html">
+    <Table>
+        <tr>
+            <th>Amount</th>
+            <th>Form Currency</th>
+            <th>To Currency</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td><label><input id="currency" type="number"></label></td>
+            <td><label>
+                <select style="width: 150px" name="Fcurrency" id="Fcurrency">
+                    <option value="23000">VNĐ</option>
+                    <option value="1">USD</option>
+                </select>
+            </label></td>
+            <td><label>
+                <select style="width: 150px" name="Tcurrency" id="Tcurrency">
+                    <option value="1">USD</option>
+                    <option value="23000">VND</option>
+                </select>
+            </label></td>
+            <td>
+                <input style="background-color: slateblue;color: white;border-color: deepskyblue" id="convert"
+                onclick="changemoney()"  type="button" value="Convert">
+            </td>
+        </tr>
+    </Table>
+    <br>
+    <span>Kết quả là: </span><span id="kq"></span>
+</form>
+<script>
+    function changemoney() {
+        let $in = document.getElementById("currency").value;
+        let $f = document.getElementById("Fcurrency").value;
+        let $t = document.getElementById("Tcurrency").value;
+        // let c_in = parseInt($in);
+        let out = ($in * $t) / $f;
+        //alert(kq);
+        document.getElementById('kq').innerHTML = out;
+    }
+</script>
+</body>
+</html>
